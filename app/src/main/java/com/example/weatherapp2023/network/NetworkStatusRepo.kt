@@ -56,8 +56,11 @@ class NetworkStatusRepo @Inject constructor(
     }
 
     private fun subscribe() {
+        unsubscribe()
         networkCallback = DefaultNetworkCallback()
-        connectivityManager.unregisterNetworkCallback(networkCallback!!)
+        networkCallback?.run {
+            connectivityManager.registerDefaultNetworkCallback(this)
+        }
         emitNetworkState(getCurrentNetwork())
     }
 
@@ -65,6 +68,7 @@ class NetworkStatusRepo @Inject constructor(
         networkCallback?.run {
             connectivityManager.unregisterNetworkCallback(this)
         }
+        networkCallback = null
     }
 
     fun isInternetAvailable(): Boolean {

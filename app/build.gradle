@@ -109,6 +109,7 @@ dependencies {
     androidTestImplementation composeBom
 
     implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'
 
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-beta01")
 
