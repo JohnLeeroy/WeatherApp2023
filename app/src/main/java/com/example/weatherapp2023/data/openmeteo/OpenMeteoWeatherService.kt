@@ -15,13 +15,13 @@ interface OpenMeteoWeatherService {
         @Query("longitude") lng: Double
     ): Response<CurrentWeatherResponse>
 
-    @GET("forecast?timezone=auto&current_weather=true&hourly=temperature_2m,weathercode,rain&daily=temperature_2m_max,weathercode,temperature_2m_min&timezone=auto&temperature_unit=fahrenheit")
+    @GET("forecast?timezone=auto&current_weather=true&hourly=temperature_2m,weathercode,rain&daily=temperature_2m_max,weathercode,temperature_2m_min&temperature_unit=fahrenheit")
     suspend fun fetchCurrentWeather(
         @Query("latitude") lat: Double,
         @Query("longitude") lng: Double
     ): Response<ForecastResponse>
 
-    @GET("forecast?timezone=auto&current_weather=true&hourly=temperature_2m,weathercode,rain&daily=temperature_2m_max,weathercode,temperature_2m_min&timezone=auto&temperature_unit=fahrenheit")
+    @GET("forecast?timezone=auto&current_weather=true&hourly=temperature_2m,weathercode,rain&daily=temperature_2m_max,weathercode,temperature_2m_min&temperature_unit=fahrenheit")
     @Headers("Cache-Control: no-cache")
     suspend fun forceFetchCurrentWeather(
         @Query("latitude") lat: Double,
